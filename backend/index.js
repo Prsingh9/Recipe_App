@@ -1,8 +1,10 @@
 const express = require('express');
 const recipeRoute = require('./routes/recipe'); // Use require instead of import
 const {mongooseConnect} = require('./config');
+const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
+app.use(cors());
 
 
 const app = express();
