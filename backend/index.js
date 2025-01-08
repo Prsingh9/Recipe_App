@@ -4,11 +4,12 @@ const {mongooseConnect} = require('./config');
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
-app.use(cors());
+
 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+app.use(cors());
 
 // Middleware to parse JSON requests
 app.use(express.json());
