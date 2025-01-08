@@ -9,8 +9,10 @@ const recipeSchema = new mongoose.Schema({
   ratings: [Number], // Keep this if you want to store individual ratings
   ratingSum: { type: Number, default: 0 }, // Sum of all ratings
   ratingCount: { type: Number, default: 0 }, // Number of ratings
-  image: { type: String, required: false }, // New field for image URL
+  averageRating: { type: Number, default: 0 }, // Average rating directly saved
+  image: { type: String, required: false }, // Field for image URL
 });
+
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 module.exports = Recipe;

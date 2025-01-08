@@ -21,7 +21,12 @@ const createRecipe = async (req, res) => {
 // Controller to get all recipes
 const getAllRecipes = async (req, res) => {
   try {
-    const recipes = await Recipe.find();
+    const recipes = await Recipe.find()
+    .sort(
+      {
+        averageRating:-1
+      }
+    );
     res.status(200).json(recipes);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching recipes' });
@@ -57,14 +62,14 @@ const addRating = async (req, res) => {
     recipe.ratingSum += rating;
     recipe.ratingCount += 1;
 
-    await recipe.save();
+    // Calculate the average rating and save it to the database
+    recipe.averageRating = recipe.ratingSum / recipe.ratingCount;
 
-    // Calculate the average rating dynamically
-    const averageRating = recipe.ratingSum / recipe.ratingCount;
+    await recipe.save();
 
     res.status(200).json({
       message: 'Rating added successfully',
-      averageRating,
+      averageRating: recipe.averageRating,
       recipe,
     });
   } catch (error) {
