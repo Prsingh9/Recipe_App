@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAllRecipes } from '../api/api';
 import { Link } from 'react-router-dom';
+import '../styles/RecipeGrid.css';
 
 const RecipeGrid = () => {
   const [recipes, setRecipes] = useState([]);
@@ -20,7 +21,7 @@ const RecipeGrid = () => {
 
   return (
     <div>
-      <h2>Recipe List</h2>
+      <h2 className='header-2'>Recipe List</h2>
       <div className="grid-container">
         {recipes.map((recipe) => (
           <div className="grid-item" key={recipe._id}>
