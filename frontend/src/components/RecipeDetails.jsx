@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'; // Import useParams
 import { getRecipeById, addRating } from '../api/api';
+import '../styles/RecipeDetails.css';  // Ensure this path is correct for your project structure
 
-const RecipeDetails = ({ match }) => {
+const RecipeDetails = () => {
+  const { id } = useParams(); // Get the `id` parameter from the URL
   const [recipe, setRecipe] = useState(null);
   const [rating, setRating] = useState('');
 
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const data = await getRecipeById(match.params.id);
-        setRecipe(data);
+        const data = await getRecipeById(id); // Use `id` directly
+        setRecipe(data);  // Directly set the received data
       } catch (error) {
         console.error('Error fetching recipe details:', error);
       }
     };
 
     fetchRecipe();
-  }, [match.params.id]);
+  }, [id]);
 
   const handleRatingChange = (e) => {
     setRating(e.target.value);
@@ -30,7 +33,7 @@ const RecipeDetails = ({ match }) => {
     }
 
     try {
-      const data = await addRating(match.params.id, rating);
+      const data = await addRating(id, rating); // Use `id` directly
       setRecipe(data.recipe); // Update recipe with new rating info
       alert('Rating added successfully');
     } catch (error) {
@@ -40,15 +43,15 @@ const RecipeDetails = ({ match }) => {
 
   return (
     recipe && (
-      <div>
+      <div className="recipe-container">
         <h2>{recipe.name}</h2>
         <img src={recipe.image} alt={recipe.name} />
         <p>{recipe.description}</p>
         <p>{recipe.instructions}</p>
-        <p>Chef: {recipe.author}</p>
-        <p>Average Rating: {(recipe.ratingSum / recipe.ratingCount).toFixed(2)}</p>
+        <p className="chef">Chef: {recipe.author}</p>
+        <p>Average Rating: {recipe.averageRating}</p> {/* Display the averageRating directly from the backend */}
 
-        <form onSubmit={handleRatingSubmit}>
+        <form onSubmit={handleRatingSubmit} className="rating">
           <input
             type="number"
             value={rating}
