@@ -1,0 +1,99 @@
+/* Container Styles */
+.recipe-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ffffff, #f8f8f8);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .recipe-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Heading Styles */
+  .recipe-container h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Image Styles */
+  .recipe-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .recipe-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Description Styles */
+  .recipe-container p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 10px 0;
+  }
+  
+  /* Author Section */
+  .recipe-container p.chef {
+    font-weight: bold;
+    color: #222;
+  }
+  
+  /* Rating Styles */
+  .recipe-container .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .recipe-container .rating input {
+    width: 80px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .recipe-container .rating input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px #007bff;
+  }
+  
+  .recipe-container .rating button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .recipe-container .rating button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+  }
+  
+  /* Form Transition */
+  .recipe-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+  }
+  
