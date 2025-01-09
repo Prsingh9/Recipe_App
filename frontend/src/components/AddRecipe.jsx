@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { createRecipe } from '../api/api';
 import { Container, Card, Title, Form, Input, Textarea, Button } from '../styles/AddRecipe.styles.js'; // Adjust the path as necessary
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddRecipe = () => {
   const [recipeData, setRecipeData] = useState({
@@ -20,9 +22,16 @@ const AddRecipe = () => {
     e.preventDefault();
     try {
       await createRecipe(recipeData);
-      alert('Recipe added successfully');
+      toast.success('Recipe added successfully!');
+      setRecipeData({
+        name: '',
+        description: '',
+        ingredients: '',
+        instructions: '',
+        author: '',
+      }); // Clear the form
     } catch (error) {
-      alert('Error adding recipe');
+      toast.error('Error adding recipe');
     }
   };
 
@@ -72,6 +81,7 @@ const AddRecipe = () => {
           <Button type="submit">Submit</Button>
         </Form>
       </Card>
+      <ToastContainer />
     </Container>
   );
 };
