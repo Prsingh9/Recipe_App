@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createRecipe } from '../api/api';
+import 'react-toastify/dist/ReactToastify.css'; // Import CSS for Toastify
 import { Container, Card, Title, Form, Input, Textarea, Button } from '../styles/AddRecipe.styles.js'; // Adjust the path as necessary
 
 const AddRecipe = () => {
@@ -20,7 +21,7 @@ const AddRecipe = () => {
     e.preventDefault();
     try {
       await createRecipe(recipeData);
-      alert('Recipe added successfully');
+        toast.success('Recipe added successfully'); // Display success toast
     } catch (error) {
       alert('Error adding recipe');
     }

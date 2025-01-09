@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'; // Import useParams
 import { getRecipeById, addRating } from '../api/api';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import CSS for Toastify
 import '../styles/RecipeDetails.css';  // Ensure this path is correct for your project structure
 
 const RecipeDetails = () => {
@@ -27,17 +29,24 @@ const RecipeDetails = () => {
 
   const handleRatingSubmit = async (e) => {
     e.preventDefault();
-    if (rating < 1 || rating > 5) {
-      alert('Rating must be between 1 and 5');
+    
+    // Convert the rating to a number
+    const numericRating = Number(rating);
+  
+    // Ensure the rating is between 1 and 5
+    if (numericRating < 1 || numericRating > 5) {
+      toast.error('Rating must be between 1 and 5'); // Display error toast
       return;
     }
-
+  
     try {
-      const data = await addRating(id, rating); // Use `id` directly
+      // Pass the numericRating to the backend
+      const data = await addRating(id, numericRating);
       setRecipe(data.recipe); // Update recipe with new rating info
-      alert('Rating added successfully');
+      toast.success('Rating added successfully'); // Display success toast
+      setRating(''); // Clear the rating input
     } catch (error) {
-      alert('Error adding rating');
+      toast.error('Error adding rating'); // Display error toast
     }
   };
 
@@ -63,6 +72,8 @@ const RecipeDetails = () => {
           />
           <button type="submit">Submit Rating</button>
         </form>
+
+        <ToastContainer /> {/* Display toast notifications here */}
       </div>
     )
   );
