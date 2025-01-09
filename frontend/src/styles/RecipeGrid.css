@@ -1,0 +1,77 @@
+/* Recipe Grid Container */
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for the grid */
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+  }
+  .header-2{
+    font-size: 40px;
+    text-align: center;
+    color:red;
+    background-color: #f8f9fa;
+  }
+  /* Individual Recipe Card */
+  .grid-item {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Image in Card */
+  .grid-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Recipe Details */
+  .grid-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ff5722;
+    margin: 15px 0 5px;
+    padding: 0 15px;
+  }
+  
+  .grid-item p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+    padding: 0 15px;
+  }
+  
+  /* Link to View Details */
+  .grid-item a {
+    display: inline-block;
+    margin: 10px 15px 15px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background: #ff7043;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .grid-item a:hover {
+    background-color: #e64a19;
+  }
+  
+  /* Hover Effect on Card */
+  .grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  }
+  
