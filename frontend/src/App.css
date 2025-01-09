@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('C:\Users\Administrator\Downloads\Recipe_App\frontend\src\bg-img.avif'); /* Specify the image URL */
+    background-image: url('./public/bg-img.avif'); /* Specify the image URL */
     background-size: cover; /* Ensures the image covers the entire background */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-position: center center; /* Centers the image */
