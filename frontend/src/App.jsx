@@ -9,7 +9,6 @@ const App = () => {
   return (
     <Router>
       <div>
-        <h1>Recipe App</h1>
         <Routes>
           <Route path="/" element={<Home />} /> {/* Add Home as the default route */}
           <Route path="/add-recipe" element={<AddRecipe />} />
