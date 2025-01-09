@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Use Routes instead of Switch
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home'; // Import Home component
 import AddRecipe from './components/AddRecipe';
 import RecipeGrid from './components/RecipeGrid';
 import RecipeDetails from './components/RecipeDetails';
@@ -9,12 +10,9 @@ const App = () => {
     <Router>
       <div>
         <h1>Recipe App</h1>
-        <div>
-          <button onClick={() => window.location.href = '/add-recipe'}>Add Recipe</button>
-          <button onClick={() => window.location.href = '/view-recipes'}>View Recipes</button>
-        </div>
-        <Routes> {/* Replace Switch with Routes */}
-          <Route path="/add-recipe" element={<AddRecipe />} /> {/* Use element instead of component */}
+        <Routes>
+          <Route path="/" element={<Home />} /> {/* Add Home as the default route */}
+          <Route path="/add-recipe" element={<AddRecipe />} />
           <Route path="/view-recipes" element={<RecipeGrid />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
         </Routes>
