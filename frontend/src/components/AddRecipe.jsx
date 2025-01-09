@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createRecipe } from '../api/api';
+import { Container, Card, Title, Form, Input, Textarea, Button } from '../styles/AddRecipe.styles.js'; // Adjust the path as necessary
 
 const AddRecipe = () => {
   const [recipeData, setRecipeData] = useState({
@@ -7,7 +8,7 @@ const AddRecipe = () => {
     description: '',
     ingredients: '',
     instructions: '',
-    author: ''
+    author: '',
   });
 
   const handleChange = (e) => {
@@ -26,17 +27,52 @@ const AddRecipe = () => {
   };
 
   return (
-    <div>
-      <h2>Add Recipe</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Recipe Name" value={recipeData.name} onChange={handleChange} required />
-        <textarea name="description" placeholder="Description" value={recipeData.description} onChange={handleChange} required />
-        <input type="text" name="ingredients" placeholder="Ingredients (comma separated)" value={recipeData.ingredients} onChange={handleChange} required />
-        <textarea name="instructions" placeholder="Instructions" value={recipeData.instructions} onChange={handleChange} required />
-        <input type="text" name="author" placeholder="Author" value={recipeData.author} onChange={handleChange} required />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <Container>
+      <Card>
+        <Title>Add Recipe</Title>
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            name="name"
+            placeholder="Recipe Name"
+            value={recipeData.name}
+            onChange={handleChange}
+            required
+          />
+          <Textarea
+            name="description"
+            placeholder="Description"
+            value={recipeData.description}
+            onChange={handleChange}
+            required
+          />
+          <Input
+            type="text"
+            name="ingredients"
+            placeholder="Ingredients"
+            value={recipeData.ingredients}
+            onChange={handleChange}
+            required
+          />
+          <Textarea
+            name="instructions"
+            placeholder="Instructions"
+            value={recipeData.instructions}
+            onChange={handleChange}
+            required
+          />
+          <Input
+            type="text"
+            name="author"
+            placeholder="Author"
+            value={recipeData.author}
+            onChange={handleChange}
+            required
+          />
+          <Button type="submit">Submit</Button>
+        </Form>
+      </Card>
+    </Container>
   );
 };
 
