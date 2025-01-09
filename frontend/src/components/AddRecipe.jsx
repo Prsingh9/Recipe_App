@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createRecipe } from '../api/api';
+import 'react-toastify/dist/ReactToastify.css'; // Import CSS for Toastify
 import { Container, Card, Title, Form, Input, Textarea, Button } from '../styles/AddRecipe.styles.js'; // Adjust the path as necessary
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
