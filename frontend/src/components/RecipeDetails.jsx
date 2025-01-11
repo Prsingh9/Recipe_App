@@ -55,7 +55,12 @@ const RecipeDetails = () => {
       <div className="recipe-container">
         <h2>{recipe.name}</h2>
         <img src={recipe.image} alt={recipe.name} />
-        <p>{recipe.description}</p>
+        <p>Ingedients:</p>
+        <ul>
+          {recipe.ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))}
+        </ul>
         <p>{recipe.instructions}</p>
         <p className="chef">Chef: {recipe.author}</p>
         <p>Average Rating: {recipe.averageRating}</p> {/* Display the averageRating directly from the backend */}
