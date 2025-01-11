@@ -25,7 +25,7 @@
   
   /* Image Styles */
   .recipe-container img {
-    width: 100%;
+    width: 50%;
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -60,7 +60,7 @@
   }
   
   .recipe-container .rating input {
-    width: 80px;
+    width: 118px;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
