@@ -22,7 +22,8 @@ body {
   
   .home-title {
     font-size: 2.5rem;
-    color: #ffffff;
+    color: #ff0000;
+    background-color: aliceblue;
     margin-bottom: 20px;
     text-transform: uppercase;
   }
