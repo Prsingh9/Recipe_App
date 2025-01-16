@@ -54,13 +54,19 @@ const RecipeDetails = () => {
     recipe && (
       <div className="recipe-container">
         <h2>{recipe.name}</h2>
+        <div className='fdis'>
         <img src={recipe.image} alt={recipe.name} />
-        <p>Ingedients:</p>
+        <div>
+        <p>Ingredients:</p>
         <ul>
           {recipe.ingredients.map((ingredient, index) => (
             <li key={index}>{ingredient}</li>
           ))}
         </ul>
+        </div>
+        </div>
+        
+        <p style={{fontSize:"24px",color:"black"}}>Instructions</p>
         <p>{recipe.instructions}</p>
         <p className="chef">Chef: {recipe.author}</p>
         <p>Average Rating: {recipe.averageRating}</p> {/* Display the averageRating directly from the backend */}
